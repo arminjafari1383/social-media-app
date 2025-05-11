@@ -1,7 +1,8 @@
 from django.urls import path
-from . import views
+from .views import *
 from django.contrib.auth import views as auth_views
 from .forms import LoginForm
+from . import views
 
 
 
@@ -12,5 +13,6 @@ urlpatterns = [
     path('logout/',views.log_out,name="logout"),
     path('register/',views.register,name = "register"),
     path('user/',views.edit_user,name = "edit_account"),
+    path('ticket/',views.create_ticket,name = "ticket"),
     
 ]

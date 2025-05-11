@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User
+from .models import *
 from django.contrib.auth.admin import UserAdmin
 
 
@@ -11,3 +11,6 @@ class UserAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
         ('Additional Information',{'fields':('date_of_birth','bio','photo','job','phone')}),
     )
+@admin.register(Ticket)
+class TicketAdmin(admin.ModelAdmin):
+    list_display = ['name','subject','phone']

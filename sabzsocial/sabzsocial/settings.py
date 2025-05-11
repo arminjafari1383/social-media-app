@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social.apps.SocialConfig',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,12 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'social.authentication.PhoneAuthBackend'
 ]
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'arminjafri452@gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_SSL = False   # غیرفعال چون از TLS استفاده می‌کنیم
+EMAIL_USE_TLS = True    # فعال برای TLS
+EMAIL_HOST_PASSWORD = 'wtqx vfir ynmm kfst'
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+DEFAULT_FROM_EMAIL = 'arminjafri452@gmail.com'
