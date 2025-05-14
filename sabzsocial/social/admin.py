@@ -11,6 +11,13 @@ class UserAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
         ('Additional Information',{'fields':('date_of_birth','bio','photo','job','phone')}),
     )
+
 @admin.register(Ticket)
 class TicketAdmin(admin.ModelAdmin):
     list_display = ['name','subject','phone']
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ['author','created']
+    ordering = ['created']
+    search_fields = ['description']
