@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'taggit',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +146,5 @@ EMAIL_USE_TLS = True    # فعال برای TLS
 EMAIL_HOST_PASSWORD = 'wtqx vfir ynmm kfst'
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 DEFAULT_FROM_EMAIL = 'arminjafri452@gmail.com'
+
+THUMBNAIL_DEBUG = True 
