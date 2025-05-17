@@ -11,6 +11,7 @@ from taggit.models import Tag
 from django.db.models import Count
 from django.views.decorators.http import require_POST
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
+from django.contrib import messages
 # Create your views here.
 
 def log_out(request):
@@ -58,19 +59,11 @@ def create_ticket(request):
             cd = form.cleaned_data
             message = f"{cd['name']}\n{cd['phone']}\n{cd['message']}"
             send_mail(cd['subject'],message,'arminjafri452@gmail.com',['arminjafri138386@gmail.com'],fail_silently=False)
-            # ticket_obj = Ticket.objects.create(
-            #     message=cd['message'],
-            #     name=cd['name'],
-            #     email=cd['email'],
-            #     phone=cd['phone'],
-            #     subject=cd['subject']
-            # )
-            sent = True
-            # return render(request, 'social/index.html')
+            messages.success(request,'ایمیل شما ارسال شد')
     else:
         form = TicketForm()
     
-    return render(request, "forms/ticket.html", {'form': form,'sent':sent})
+    return render(request, "forms/ticket.html", {'form': form})
 
 def post_list(request,tag_slug=None):
     posts = Post.objects.select_related('author').order_by('-total_likes')

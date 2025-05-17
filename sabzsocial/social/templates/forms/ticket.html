@@ -52,8 +52,10 @@
   margin-bottom: 16px;
 }
 </style>
-{% if sent %}
-<h1>ایمیل شما به پشتیبانی ارسال شد</h1>
+{% if messages %}
+{% for message in messages %}
+{{ message }}
+{% endfor %}
 {% endif %}
 
 <div class="ticket-form-container">
